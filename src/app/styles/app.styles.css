@@ -1,0 +1,123 @@
+.active{
+    color :wheat;
+}
+a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+a:hover{
+    color: green;
+    text-decoration: underline;
+}
+.navigation{
+    height: 60px;
+    background-color: #0d3349;
+    margin-bottom: 8px;
+}
+.links{
+    padding-top: 5px;
+}
+.links ul li{
+    display: inline;
+    margin-right: 40px;
+}
+.footer {
+    background-color: #0d3349;
+    color: white;
+    height: 35px;
+    position: fixed;
+    left: 0; bottom: 0;
+    padding-top: 10px;
+    width: 100%;
+}
+.footer p {
+}
+.delete {
+    height: 22px;
+    color: white;
+    background-color: red;
+    border: 1px solid red ;
+    border-radius: 5%;
+}
+.edit{
+    height: 22px;
+    width: 22px;
+    color: white;
+    background-color: blue;
+    border: 1px solid blue;
+    border-radius: 11px;
+}
+li{
+    font-size: 20px;
+}
+.add{
+    background-color: forestgreen;
+    border: 1px solid forestgreen ;
+    height: 30px;
+    width: 200px;
+    border-radius: 5%;
+    color: white;
+}
+.single{
+    border-radius: 11px;
+    width: 22px;
+    height: 22px;
+
+}
+button b{
+    font-size: 16px;
+    font-family: Calibri;
+}
+.counter{
+    background-color: black;
+    border: 2px solid lightseagreen;
+    height: 30px;
+    border-radius: 5%;
+    color: white;
+}
+.multicolour{
+    background-color: #3A3A3A;
+}
+input.ng-invalid {
+    border:solid red 2px;
+    height: 26px;
+    border-radius: 5%;
+}
+input.ng-valid {
+    border:solid green 2px;
+    height: 26px;
+    border-radius: 5%;
+}
+.warning{
+    background-color: red;
+    width: 220px;
+    border-radius: 5%;
+    color: white;
+}
+.guard-buttons {
+    padding-top:200px;
+}h1 {
+     color: #FF0000;
+ }
+.not-found {
+    margin-top: 200px;
+}
+.day{
+    height: 100%;
+    width: 100%;
+    background-color: wheat;
+}
+.night{
+    height: 100%;
+    width: 100%;
+    background-color: #0d3349;
+    color: wheat;
+}
+.ch {
+    margin-bottom: 10px;
+    margin-left:10px;
+}
+.repos{
+    color: #0d3349;
+}

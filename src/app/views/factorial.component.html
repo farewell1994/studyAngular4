@@ -1,0 +1,34 @@
+<h3 align="center">
+    На цій сторінці розміщений сервіс по знаходженню факторіала.
+    Перша форма відправляє GET запит, друга POST запит до скрипта
+</h3>
+<hr>
+<!--
+блок для роботи з факторіалом. Запит на сервер GET
+Data-Drive форма, побудована з допомогою FormBuilder
+-->
+<h3>get запит</h3>
+<form [formGroup]="myGetForm" novalidate (ngSubmit)="getFactorial()">
+    <label>Число</label>
+    <input name="factorial" formControlName="factorialGet" />
+    <button [disabled]="myGetForm.invalid" class="add">Відправити</button>
+    <div *ngIf="done">
+        Факторіал: {{factorial}}
+    </div>
+</form>
+<hr>
+<!--
+блок для роботи з факторіалом. Запит на сервер POST
+Data-Drive форма.
+Для прив*язки об*єкта myForm до конкретного елемента форми застосовується атрибут formGroup.
+Необхідно зв*язати об*єкты FormControl з елементами вводу за допомоги атрибута formControlName.
+-->
+<h3>post запит</h3>
+<form [formGroup]="myForm" novalidate (ngSubmit)="getFactorialPOST()">
+    <label>Число</label>
+    <input name="factorial" formControlName="factorialPost" />
+    <button [disabled]="myForm.invalid" class="add">Відправити</button>
+    <div *ngIf="done">
+        Факторіал: {{factorialPOST}}
+    </div>
+</form>

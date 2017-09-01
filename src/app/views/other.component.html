@@ -1,0 +1,36 @@
+<div [ngClass]="{day:see, night:!see}" >
+    <h3 align="center">Замітки, і те на що варто звернути увагу</h3>
+    <hr>
+    <ul>
+        <li>
+            Форми для сторінки факторіал побудовані Data-Driven підходом, а для головної - Template-Driven
+        </li>
+        <li>
+            Реалізована валідація через класи input елементів і html pattern
+        </li>
+        <li>
+            Редірект при спробі зайти на сторінку /admin на сторінку /page
+        </li>
+        <li>
+            Для входу на сторінку Guard потрібно ввести "user"
+        </li>
+        <li>
+            На головній задіяний pipe для переведення строки у верхній регістр, та власностворений pipe, який знаходить факторіал числа
+        </li>
+        <li>
+            На сторінці parent задіяна власностворена директива, що змінює шрифт
+        </li>
+        <li>
+            Нижче розміщена кнопка, яка змінює background (ngClass)
+        </li>
+    </ul>
+    <!--
+    Colour - при натисканні на кнопку змінюється її background
+    ngClass - атрибутивна директива, яка визначає набір класів до елемента. Змінна see булевого типу і від її значення залежить чи прив*язувати до елемента класс
+    -->
+    <button class="add ch" (click)="toggle()">Colour</button>
+    <hr>
+    <p>
+        Репозиторій - <a class="repos" href="https://github.com/farewell1994/studyAngular4" target="_blank">https://github.com/farewell1994/studyAngular4</a>
+    </p>
+</div>

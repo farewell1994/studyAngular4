@@ -1,0 +1,41 @@
+<div align="center" class="navigation row">
+    <nav class="links">
+        <ul>
+            <!--
+            Для визначення адрес посилань застосовується директива routerLink.
+            Для стилізації активних посилань застосовується спеціальна директива routerLinkActive,
+            яка вказує на клас css, застосовуваний до активного посиланням.
+            -->
+            <li>
+                <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Головна</a>
+            </li>
+            <li>
+                <a routerLink="/guard" routerLinkActive="active">Guard</a>
+            </li>
+            <li>
+                <a [routerLink]="['other', '5']" routerLinkActive="active" [queryParams]="{'user':'Test'}">Parameter</a>
+            </li>
+            <li>
+                <a routerLink="/factorial" routerLinkActive="active">Факторіал</a>
+            </li>
+            <li>
+                <a routerLink="/parent" routerLinkActive="active">Parent</a>
+            </li>
+            <li>
+                <a routerLink="/json" routerLinkActive="active">JSON</a>
+            </li>
+            <li>
+                <a routerLink="/other" routerLinkActive="active">Інше</a>
+            </li>
+        </ul>
+    </nav>
+    <!--
+    В якості головного компонента виступає AppComponent. Цей компонент виступає в якості контейнера для інших компонентів,
+    які будуть обслуговувати запити до додатка. Але щоб можна було впровадити в AppComponent той компонент,
+    який обробляє запит, необхідно використовувати елемент RouterOutlet.
+    -->
+</div>
+<router-outlet></router-outlet>
+<div align="center" class="footer">
+    <b><i>Test application "Study Angular 4"</i></b>
+</div>

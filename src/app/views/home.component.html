@@ -1,0 +1,69 @@
+<div>
+    <!--Для роботи з формою визначена спеціальна директива NgForm. Вона створює об'єкт FormGroup і прив'язує його до форми,
+    що дозволяє відстежувати стан форми, управляти її валідацією.
+    Атрибут novalidate відключає відображення вбудованих в браузер повідомлень про помилки валідації.
+    (ngSubmit) - подія, яка реагує на відправку форми
+    -->
+    <form (ngSubmit)="addName(fieldNewUserValue)" #form="ngForm" novalidate>
+        <!--
+        Цей блок будо відображено в залежності від валідності введеного імені нового юзера
+        -->
+        <div align="center" class="warning" [hidden]="newValue.valid">
+            <b>Некоректна довжина імені</b>
+        </div>
+        <br>
+        <!--
+         NgModel. Ця директива за допомогою переданої моделі створює об'єкт FormControl і прив'язує цю модель до створеного елементу форми.
+         Об'єкт FormControl відстежує значення моделі, а також відповідає за валідацію цього значення і взаємодію з користувачем.
+         [(ngModel)]="newUser" - двосторонньо зв*язує елемент DOM і властивість (newUser) компонента
+         Для відстеження зміни моделі цього поля за допомогою події (ngModelChange) прив'язуємо метод,
+         який спрацьовує при зміні значення
+         #newValue - шаблонна змінна з моделлю введеного значення
+         -->
+        <input type="text" name="user" [(ngModel)]="fieldNewUserValue" (ngModelChange)="changeNewUser()"
+               #newValue="ngModel" required autofocus pattern="^[A-Za-zА-Яа-яЁёІі0-9\s]{4,12}">
+        <!--
+        [disabled]="form.form.invalid" - робить кнопку не активною, якщо у формі є невалідні введені дані
+        -->
+        <button [disabled]="form.form.invalid" class="add"><b>Add name</b></button>
+    </form>
+    <hr>
+    <!--
+    Блок з списком юзерів відображається , якщо змінна seeForm = false
+    -->
+    <div  *ngIf="!seeForm; else editForm">
+        <ol>
+            <!--
+            ngFor - структурна директива, дозволяє перебрати масив в шаблоні.
+            можна отримати доступ до індексу масиву (*ngFor="let user of names; let i = index">{{i+1}}.{{user}})
+            кнопка "-" видаляє юзера з списку
+            кнопка "Е" "ховає" блок з списком та показує форму для редагування даних проюзера
+            | uppercase - інструмент, що форматує значення, зокрема тут - перевод строки в верхній регістр
+            -->
+            <li *ngFor="let user of users; let i = index">
+                <b>{{ user.name | uppercase}}</b>
+                <button class="delete single" (click)="deleteName(user)"><b>-</b></button>
+                <button class="edit" (click)="showForm(user, i)"><b>E</b></button>
+                <hr>
+            </li>
+        </ol>
+        <!--
+        ngIf - структурна директива, визначає, чи показати елемент, залежно від умови, якщо умова не виконується,
+        відобразиться елемент <ng-template #warning></template>
+        можна вказати блок який виконуватиметься при true
+        users[0] якщо юзається usersService
+        -->
+        <button *ngIf="users[0]; else warning" class="delete" (click)="deleteAllNames()"><b>Delete all users</b></button>
+        <p>Всього користувачів: {{ users.length }}</p>
+        <p>Факторіал кількості: {{ users.length | factorial }}</p>
+        <ng-template #warning>
+            <p>нікого...</p>
+        </ng-template>
+    </div>
+    <ng-template #editForm>
+        <p>Edit user</p>
+        <input type="text" [(ngModel)]="currentUser.name" required pattern="^[A-Za-zА-Яа-яЁёІі0-9\s]{4,12}" #editValue="ngModel">
+        <button [disabled]="editValue.invalid" class="edit" (click)="editName(currentUser)"><b>V</b></button>
+    </ng-template>
+</div>
+<hr>

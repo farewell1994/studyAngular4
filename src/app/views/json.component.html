@@ -1,0 +1,14 @@
+<h3 align="center">
+    На цій сторінці реалізована робота з JSON даними
+</h3>
+<hr>
+<!--
+вивід даних з файлу test.users.json
+-->
+<div>
+    <h3>Дані з test.users.json:</h3>
+    <ol>
+        <li *ngFor="let user of jsonUsers">{{ user.name }}</li>
+    </ol>
+</div>
+<hr>
