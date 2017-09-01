@@ -108,6 +108,15 @@ input.ng-valid {
     width: 100%;
     background-color: wheat;
 }
+.day p{
+    padding-left: 10px;
+}
+.night p{
+    padding-left: 10px;
+}
+.night a{
+    color: wheat;
+}
 .night{
     height: 100%;
     width: 100%;
